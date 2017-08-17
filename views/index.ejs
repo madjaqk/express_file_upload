@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Files?</title>
+		<style type="text/css">
+			div.rat{
+				height: 250px;
+				width: 250px;
+				display: inline-block;
+				border: 2px dotted aqua;
+				margin: 10px;
+				padding: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Rats!</h1>
+		<form action="/upload" method="post" encType="multipart/form-data">
+			<p>Name: <input type="text" name="name"></p>
+			<p>Age: <input type="number" name="age"></p>
+			<p>Picture: <input type="file" name="picture"></p>
+			<p><input type="submit" value="Submit"></p>
+		</form>
+		<% for(let rat of rats){ %>
+			<div class="rat">
+				<img src="imgs/<%= rat.pic_url %>" width="200px">
+				<h3><%= rat.name %></h3>
+				<p>Age: <%= rat.age %></p>
+			</div>
+		<% } %>
+	</body>
+</html>
